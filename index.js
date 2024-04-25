@@ -9,7 +9,10 @@ const PORT=process.env.PORT ||8000;
 
 
 const fileupload=require("express-fileupload")
-app.use(fileupload());
+app.use(fileupload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}));
 
 const mydb=require("./config/database");
 mydb.connect();
